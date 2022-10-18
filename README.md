@@ -6,10 +6,14 @@
 
 ## Comment utiliser ?
 ### Télécharger les issues d'un répo Github
-`python3 import_github_trace.py pchampin/sophia_rs --out issues.json`
+```
+python3 import_github_trace.py pchampin/sophia_rs --out issues.json
+```
 
 ### Tester si le graphe RDF (obtenu à l'aide du context et les issues) conforme au graphe SHACL 
-`python3 validate_json_to_rdf.py`
+```
+python3 validate_json_to_rdf.py
+```
 
 ## Travail de 
 - Khaled ABDRABO p1713323 
