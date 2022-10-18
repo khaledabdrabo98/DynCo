@@ -1,0 +1,73 @@
+{
+   "@context": {
+        "ex": "http://example.com/ns#",
+        "s": "http://schema.org/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        
+        "repository_url": {
+            "@reverse": "ex:issue",
+            "@type": "@id"
+        },
+        "url": "@id",
+        
+        "created_at": {
+            "@id": "s:startDate",
+            "@type": "xsd:dateTimeStamp"
+        },
+        "html_url": {
+            "@id": "s:url",
+            "@type" : "xsd:anyURI"
+        },
+        "title": "s:name",
+        "body": "s:description",
+        "assignees.login": "ex:assignee",
+        "assignees.url": "s:creator",
+        "author_association": "ex:authorAssociation",
+
+        "user": "ex:user",
+        "user.login": {
+            "@id": "s:accounId",
+            "@type": "xsd:string"
+        },
+        "user.id": {
+            "@id": "s:identifier",
+            "@type" : "xsd:integer"
+        },
+        "user.html_url": {
+            "@id": "s:url",
+            "@type" : "xsd:anyURI"
+        },
+
+        "labels": {
+            "@id": "ex:label",
+            "@type": "@id"
+        },
+        "labels.name": "s:name",
+        "labels.description": "s:description",
+
+        "comments": {
+            "@id": "ex:comment",
+            "@type": "@id"
+        },
+        "comments.user.login": "s:creator",
+        "comments.created_at": {
+            "@id": "s:startDate",
+            "@type": "xsd:dateTimeStamp"
+        },
+        "comments.body": "s:description",
+        "comments_url": {
+            "@id": "s:url",
+            "@type" : "xsd:anyURI"
+        },
+        "comments.author_association": "ex:authorAssociation",
+
+        "state": "@type", 
+        "open": "ex:OpenIssue",
+        "closed": "ex:ClosedIssue",
+        "closed_at": {
+            "@id": "s:endDate",
+            "@type": "xsd:dateTimeStamp"
+        }
+
+   }
+}
