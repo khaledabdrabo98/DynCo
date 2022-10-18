@@ -48,8 +48,4 @@ r = validate(rdf,
 )
 
 conforms, results_graph, results_text = r
-
-print("Conforms ? ")
-print(conforms)
-# print("result_graph: \n", results_graph)
-# print("result_text: \n", results_text)
+print(results_text)
