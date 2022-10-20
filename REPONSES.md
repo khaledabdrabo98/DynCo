@@ -179,24 +179,89 @@ INSERT DATA {
  
 - QUESTION 12 
 ```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex:<http://example.com/ns#>
+PREFIX s: <http://schema.org/>
+INSERT DATA{
+	ex:contributor rdf:type rdf:property;
+		rdf:range ex:Issue;
+		rdf:domain ex:User;
+		rdf:type owl:Restriction;
+		owl:propertyChainAxiom(ex:comment s:creator).
+}
 ```
  
 - QUESTION 13 
 ```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex:<http://example.com/ns#>
+SELECT (COUNT(?u) as ?uCount) WHERE{
+	?i ex:contributor ?u.
+    ?i rdf:type ex:VisitorIssue;
+       rdf:type ex:VisitorOpenIssue.
+}
 ```
  
 - QUESTION 14 
 ```
+Résultat obtenu : `14`
 ```
  
 - QUESTION 15
+
+Créez une requête SPARQL qui renvoie les informations suivantes pour toutes les `ex:VisitorOpenIssue` de votre dataset :
 ```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex:<http://example.com/ns#>
+PREFIX s: <http://schema.org/>
+SELECT ?title (COUNT(distinct ?comments) as ?cmCount) (COUNT(distinct 
+?commentors) as ?ctCount) WHERE{
+	?i rdf:type ex:VisitorOpenIssue.
+    ?i s:name ?title;
+       ex:comment ?comments;
+       ex:contributor ?commentors.
+} GROUP BY ?title
+```
+exécutez une requête SPARQL (toujours la même) qui supprime le type `ex::OpenIssue` de tous les tickets ayant le type `ex:ClosedIssue` :
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex:<http://example.com/ns#>
+PREFIX s: <http://schema.org/>
+DELETE {
+    ?t rdf:type ex:OpenIssue.
+} WHERE {
+    graph <http://example.org/ns#tmp>{
+        ?t rdf:type ex:ClosedIssue.
+    }
+}
+```
+exécutez une requête SPARQL (toujours la même) qui insère tous les triplets dans le graphe par défaut.
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX ex:<http://example.com/ns#>
+PREFIX s: <http://schema.org/>
+INSERT {
+    ?s ?p ?o
+} WHERE{
+    graph <http://example.org/ns#tmp>{
+        ?s ?p ?o.
+    }
+}
 ```
  
 - QUESTION 16
-```
-```
- 
+
+Nombre de commentaires par issue, pour chaque trace
+!(https://forge.univ-lyon1.fr/p1713323/tp-connaissnaces-dynamics/-/blob/main/G1.PNG?raw=true)
+
+Nombre de contributors par issue, pour chaque trace
+!(https://forge.univ-lyon1.fr/p1713323/tp-connaissnaces-dynamics/-/blob/main/G2.PNG?raw=true)
+
 - QUESTION 17
 ```
 ```
