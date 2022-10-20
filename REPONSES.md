@@ -55,9 +55,15 @@ Résultat obtenu :
 | owl:Thing  | 
 
 - QUESTION 6 
-```
-#TODO
-```
+
+**rdfs:Class** : Un des axiomes RDF-S est : `rdfs:subClassOf rdfs:range rdfs:Class`. Or, suite à la requête de la question 1, on a 
+`ex:OpenIssue rdfs:subClassOf ex:Issue`
+`ex:ClosedIssue rdfs:subClassOf ex:Issue`
+Donc `ex:OpenIssue` et `ex:ClosedIssue` sont bien de type `rdfs:Class`. Pareil pour `ex:Issue`
+
+**rdfs:Resource** : Un des axiomes RDF-S est `rdf:type rdfs:domain rdfs:Resource`. Or `ex:Issue rdf:type rdfs:Class`, donc `ex:Issue rdf:type rdfs:Resource`.
+
+**owl:Thing** : Tous les objets OWL sont des sous-classes de `owl:Thing`, d'où le fait qu'on le voie dans ce tableau de résultats.
 
 - QUESTION 7 
 ```
