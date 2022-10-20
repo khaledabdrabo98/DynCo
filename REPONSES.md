@@ -256,9 +256,6 @@ INSERT {
  
 - QUESTION 16
 
-Nombre de commentaires par issue, pour chaque trace
-![Graphe 1](https://forge.univ-lyon1.fr/p1713323/tp-connaissnaces-dynamics/-/blob/main/G1.PNG)
-
 Nombre de contributors par issue, pour chaque trace
 ![Graphe 2](https://forge.univ-lyon1.fr/p1713323/tp-connaissnaces-dynamics/-/blob/main/G2.PNG)
 
