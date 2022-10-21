@@ -189,7 +189,8 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ex:<http://example.com/ns#>
 PREFIX s: <http://schema.org/>
-INSERT DATA{
+
+INSERT DATA {
 	ex:contributor rdf:type rdf:property;
 		rdf:range ex:Issue;
 		rdf:domain ex:User;
@@ -202,7 +203,8 @@ INSERT DATA{
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ex:<http://example.com/ns#>
-SELECT (COUNT(?u) as ?uCount) WHERE{
+
+SELECT (COUNT(?u) as ?uCount) WHERE {
 	?i ex:contributor ?u.
     ?i rdf:type ex:VisitorIssue;
        rdf:type ex:VisitorOpenIssue.
@@ -210,9 +212,7 @@ SELECT (COUNT(?u) as ?uCount) WHERE{
 ```
  
 - QUESTION 14 
-```
 Résultat obtenu : `14`
-```
  
 - QUESTION 15
 
@@ -221,8 +221,9 @@ Créez une requête SPARQL qui renvoie les informations suivantes pour toutes le
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ex:<http://example.com/ns#>
 PREFIX s: <http://schema.org/>
+
 SELECT ?title (COUNT(distinct ?comments) as ?cmCount) (COUNT(distinct 
-?commentors) as ?ctCount) WHERE{
+?commentors) as ?ctCount) WHERE {
 	?i rdf:type ex:VisitorOpenIssue.
     ?i s:name ?title;
        ex:comment ?comments;
@@ -236,10 +237,11 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ex:<http://example.com/ns#>
 PREFIX s: <http://schema.org/>
+
 DELETE {
     ?t rdf:type ex:OpenIssue.
 } WHERE {
-    graph <http://example.org/ns#tmp>{
+    graph <http://example.org/ns#tmp> {
         ?t rdf:type ex:ClosedIssue.
     }
 }
@@ -251,10 +253,11 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX ex:<http://example.com/ns#>
 PREFIX s: <http://schema.org/>
+
 INSERT {
     ?s ?p ?o
-} WHERE{
-    graph <http://example.org/ns#tmp>{
+} WHERE {
+    graph <http://example.org/ns#tmp> {
         ?s ?p ?o.
     }
 }
@@ -263,4 +266,8 @@ INSERT {
 - QUESTION 16
 
 Nombre de contributors par issue, pour chaque trace
-![Graphe 2](https://forge.univ-lyon1.fr/p1713323/tp-connaissnaces-dynamics/-/blob/main/G2.PNG)
+![Graphe 1](./G1.PNG)
+
+
+Nombre de commentaires par issue, pour chaque trace
+![Graphe 2](./G2.PNG)
