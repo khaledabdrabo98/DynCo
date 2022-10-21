@@ -264,8 +264,3 @@ INSERT {
 
 Nombre de contributors par issue, pour chaque trace
 ![Graphe 2](https://forge.univ-lyon1.fr/p1713323/tp-connaissnaces-dynamics/-/blob/main/G2.PNG)
-
-- QUESTION 17
-```
-```
- 
